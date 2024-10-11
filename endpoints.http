@@ -8,8 +8,8 @@ POST http://localhost:3333/produtos
 Content-Type: application/json
 
 {
-    "name": "Insane Clown",
-    "descricao": "Pra treinar potente!"
+    "name": "Ovo",
+    "descricao": "fazer uma omelete"
 }
 
 ###
@@ -19,8 +19,8 @@ PUT http://localhost:3333/produtos/70bd845b-03ed-44ef-ab71-70af255e7258
 Content-Type: application/json
 
 {
-    "naasdme": "Palhaço Insano",
-    "descricao": "Pré treino mais forte do mercado."
+    "naasdme": "Ovadas",
+    "descricao": "Para fazer ainda mais omeletes"
 }
 
 ###
