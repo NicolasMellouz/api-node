@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compras</title>
+</head>
+<body>
+    
+    <input type="text" name="" id="name" placeholder="nome">
+    <input type="text" name="" id="descricao" placeholder="descricao">
+
+    <button onclick="criarProdutos()">
+        Criar Produto 
+    </button>
+
+    <p id="produtos"></p>
+
+    <script>
+        async function pegarProdutos(){
+            const resposta = await fetch('http://localhost:3333/produtos', {
+                method: 'GET'
+            })
+        const produtos = await resposta.json();
+        console.log(produtos);
+
+        const elementoP = document.getElementById('produtos');
+        elementoP.innerHTML = produtos[0].name;
+    }
+
+    pegarProdutos();
+
+    async function criarProdutos(){
+        const name = document.getElementById('nome').value;
+        const descricao = document.getElementById('descricao').value;
+
+        const novoProduto = {
+            "name": "Controle a carro remoto",
+            "descricao": "Vrum Vrum"
+        }
+
+    const resposta = await fetch('POST http://localhost:3333/produtos', {
+        method: 'POST',
+        headers: {
+                'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(novoProduto)
+    });
+      criarProdutos();
+}
+    </script>
+</body>
+</html>
